@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>echojs</title>
+  <meta name="viewport" content="width=device-width">
+</head>
+<body>
+<div><img src="images/image.gif" width="220" height="220" data-echo="http://pic.mousebird.cn/images/57d0bcbcNd22cad97.png"></div>
+<div><img src="images/image.gif" width="220" height="220" data-echo="http://pic.mousebird.cn/images/57de9c90N48e3c482.jpg"></div>
+<div><img src="images/image.gif" width="220" height="220" data-echo="http://pic.mousebird.cn/images/555af01aN0bf1fcb1.jpg"></div>
+<div><img src="images/image.gif" width="220" height="220" data-echo="http://pic.mousebird.cn/images/572b0233N573b593b.jpg"></div>
+<div><img src="images/image.gif" width="220" height="220" data-echo="http://pic.mousebird.cn/images/572f631fNee6ec9db.jpg"></div>
+<div><img src="images/image.gif" width="220" height="220" data-echo="http://pic.mousebird.cn/images/576a30a9N6e0daf1e.jpg"></div>
+<div><img src="images/image.gif" width="220" height="220" data-echo="http://pic.mousebird.cn/images/57057f7eN936fd6c0.jpg"></div>
+<div><img src="images/image.gif" width="220" height="220" data-echo="http://pic.mousebird.cn/images/562898c4N3e135baf.jpg"></div>
+<div><img src="images/image.gif" width="220" height="220" data-echo="http://pic.mousebird.cn/images/573357c1N10bb6e16.jpg"></div>
+<div><img src="images/image.gif" width="220" height="220" data-echo="http://pic.mousebird.cn/images/57612849N9e40d33b.jpg"></div>
+<script type="text/javascript" src="js/echo2.js"></script>
+<script type="text/javascript">
+
+   echo.init({
+    offset: 10,
+    throttle: 250,
+    unload: true,
+    debounce:false,
+    callback: function (element, op) {
+      console.log(element, 'has been', op + 'ed')
+    }
+  });
+</script>
+</body>
+</html>

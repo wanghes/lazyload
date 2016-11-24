@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>简单的滚动加载图片</title>
+    <script type="text/javascript" src="jquery.js"></script>
+</head>
+<body>
+<div><img src="echojs/images/placeholder.png" width="220" height="220" data-echo="http://pic.mousebird.cn/images/57d0bcbcNd22cad97.png"></div>
+<div><img src="echojs/images/placeholder.png" width="220" height="220" data-echo="http://pic.mousebird.cn/images/57de9c90N48e3c482.jpg"></div>
+<div><img src="echojs/images/placeholder.png" width="220" height="220" data-echo="http://pic.mousebird.cn/images/555af01aN0bf1fcb1.jpg"></div>
+<div><img src="echojs/images/placeholder.png" width="220" height="220" data-echo="http://pic.mousebird.cn/images/572b0233N573b593b.jpg"></div>
+<div><img src="echojs/images/placeholder.png" width="220" height="220" data-echo="http://pic.mousebird.cn/images/572f631fNee6ec9db.jpg"></div>
+<div><img src="echojs/images/placeholder.png" width="220" height="220" data-echo="http://pic.mousebird.cn/images/576a30a9N6e0daf1e.jpg"></div>
+<div><img src="echojs/images/placeholder.png" width="220" height="220" data-echo="http://pic.mousebird.cn/images/57057f7eN936fd6c0.jpg"></div>
+<div><img src="echojs/images/placeholder.png" width="220" height="220" data-echo="http://pic.mousebird.cn/images/562898c4N3e135baf.jpg"></div>
+<div><img src="echojs/images/placeholder.png" width="220" height="220" data-echo="http://pic.mousebird.cn/images/573357c1N10bb6e16.jpg"></div>
+<div><img src="echojs/images/placeholder.png" width="220" height="220" data-echo="http://pic.mousebird.cn/images/57612849N9e40d33b.jpg"></div>
+</body>
+</html>
+<script type="text/javascript">
+    $(document).ready(function(){
+        // 获取页面视口高度
+        var viewportHeight = $(window).height();
+        var lazyload = function() {
+            // 获取窗口滚动条距离
+            var scrollTop = $(window).scrollTop();
+            $('img').each(function(){
+                // 判断 视口高度+滚动条距离 与 图片元素距离文档原点的高度
+                var x = scrollTop + viewportHeight - $(this).position().top;
+                // 如果大于0 即该元素能被浏览者看到，则将暂存于自定义属性loadpic的值赋值给真正的src
+                if (x > 0)
+                {
+                    $(this).attr('src',$(this).attr('data-echo'));
+                }
+            });
+        };
+        lazyload();
+        $(window).on('scroll',function(){
+             setInterval(lazyload,100);// 创建定时器 “实时”计算每个元素的src是否应该被赋值
+        });
+    });
+</script>

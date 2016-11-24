@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>echojs</title>
+  <meta name="viewport" content="width=device-width">
+  <style type="text/css">
+    *{
+      padding:0;
+      margin:0;
+      border:none;
+    }
+    html,body{
+      font-size:12px;
+    }
+    body{
+      height: 100%;
+    }
+    ::selection {
+        color: #fff;
+        background: #000;
+    }
+    #wrap{
+      padding: 0;
+      box-sizing: border-box;
+      height: 100%;
+    }
+    .box{
+      width:100%;
+      padding: 15px;
+      box-sizing: border-box;
+      background-color:#fff;
+      display: flex;
+      flex-flow:row nowrap;
+      border-bottom:1px solid #f5f5f5;
+      transition: all .3s linear;
+      cursor: pointer;
+        box-shadow: -2px 5px -5px #ccc;
+    }
+    .box:hover{
+      background-color: #eff2f0;
+
+    }
+    .box .img{
+      background-color: #ccc;
+      background-image:url("images/default.jpg") ;
+      background-position: center center;
+      background-repeat: no-repeat;
+      width:12rem;
+      padding: 0;
+      height:12rem;
+      background-size: contain;
+      border:1px solid #efefef;
+      flex-shrink: 0;
+    }
+    .box .img.show{
+      background-color: #fff;
+      background-size: 90%;
+      width:10.8rem;
+      padding: .6rem;
+      height:10.8rem;
+      box-shadow: -2px 5px 5px #ccc;
+    }
+    .right{
+      padding: 0 0 0 10px;
+      flex-shrink: 1;
+    }
+    .right label{
+       font-size: 1.1rem;
+      display: block;
+      margin-top:5px;
+      color:#666;
+    }
+    .right label:before{
+      color:#666;
+      font-size: 1.1rem;
+      font-weight:bold;
+    }
+    .right label:nth-child(2):before{
+       content: "上市时间：";
+    }
+    .right label:nth-of-type(2):before{
+       content: "机身内存：";
+    }
+     .right label:nth-of-type(3):before{
+       content: "机身尺寸：";
+    }
+    .box h3{
+      font-size: 1.4rem;
+      font-weight:normal;
+    }
+    .box p{
+      margin-top:5px;
+      font-size: 1.1rem;
+      color:#999;
+    }
+  </style>
+</head>
+<body>
+<div id="wrap">
+<div class="box">
+  <div class="img" data-echo-placeholder="images/default.jpg" data-echo-background="http://pic.mousebird.cn/images/57d0bcbcNd22cad97.png"></div>
+  <div class="right">
+      <h3>手机01</h4>
+      <label>2015-10-19</label>
+      <label>2G</label>
+      <label>4.5</label>
+      <p>介绍文字：介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字</p>
+  </div>
+</div>
+<div class="box">
+  <div class="img" data-echo-placeholder="images/default.jpg" data-echo-background="http://pic.mousebird.cn/images/57de9c90N48e3c482.jpg"></div>
+  <div class="right">
+      <h3>手机01</h4>
+      <label>2015-10-19</label>
+      <label>2G</label>
+      <label>4.5</label>
+      <p>介绍文字：介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字</p>
+  </div>
+</div>
+<div class="box">
+  <div class="img" data-echo-placeholder="images/default.jpg" data-echo-background="http://pic.mousebird.cn/images/555af01aN0bf1fcb1.jpg"></div>
+  <div class="right">
+      <h3>手机01</h4>
+      <label>2015-10-19</label>
+      <label>2G</label>
+      <label>4.5</label>
+      <p>介绍文字：介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字</p>
+  </div>
+</div>
+<div class="box">
+  <div class="img" data-echo-placeholder="images/default.jpg" data-echo-background="http://pic.mousebird.cn/images/572b0233N573b593b.jpg"></div>
+  <div class="right">
+    <h3>手机01</h4>
+    <label>2015-10-19</label>
+    <label>2G</label>
+    <label>4.5</label>
+    <p>介绍文字：介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字</p>
+  </div>
+</div>
+<div class="box">
+  <div class="img" data-echo-placeholder="images/default.jpg" data-echo-background="http://pic.mousebird.cn/images/572f631fNee6ec9db.jpg"></div>
+  <div class="right">
+      <h3>手机01</h4>
+      <label>2015-10-19</label>
+      <label>2G</label>
+      <label>4.5</label>
+      <p>介绍文字：介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字</p>
+  </div>
+</div>
+<div class="box">
+  <div class="img" data-echo-placeholder="images/default.jpg" data-echo-background="http://pic.mousebird.cn/images/576a30a9N6e0daf1e.jpg"></div>
+  <div class="right">
+      <h3>手机01</h4>
+      <label>2015-10-19</label>
+      <label>2G</label>
+      <label>4.5</label>
+      <p>介绍文字：介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字</p>
+  </div>
+</div>
+<div class="box">
+  <div class="img" data-echo-placeholder="images/default.jpg" data-echo-background="http://pic.mousebird.cn/images/57057f7eN936fd6c0.jpg"></div>
+  <div class="right">
+      <h3>手机01</h4>
+      <label>2015-10-19</label>
+      <label>2G</label>
+      <label>4.5</label>
+      <p>介绍文字：介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字</p>
+  </div>
+</div>
+<div class="box">
+  <div class="img" data-echo-placeholder="images/default.jpg" data-echo-background="http://pic.mousebird.cn/images/562898c4N3e135baf.jpg"></div>
+  <div class="right">
+      <h3>手机01</h4>
+      <label>2015-10-19</label>
+      <label>2G</label>
+      <label>4.5</label>
+      <p>介绍文字：介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字</p>
+  </div>
+</div>
+<div class="box">
+  <div class="img" data-echo-placeholder="images/default.jpg" data-echo-background="http://pic.mousebird.cn/images/573357c1N10bb6e16.jpg"></div>
+  <div class="right">
+      <h3>手机01</h4>
+      <label>2015-10-19</label>
+      <label>2G</label>
+      <label>4.5</label>
+      <p>介绍文字：介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字</p>
+  </div>
+</div>
+<div class="box">
+  <div class="img" data-echo-placeholder="images/default.jpg" data-echo-background="http://pic.mousebird.cn/images/57612849N9e40d33b.jpg"></div>
+  <div class="right">
+      <h3>手机01</h4>
+      <label>2015-10-19</label>
+      <label>2G</label>
+      <label>4.5</label>
+      <p>介绍文字：介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字</p>
+  </div>
+</div>
+</div>
+<script type="text/javascript" src="js/echo3.js"></script>
+<script type="text/javascript">
+   echo.init({
+    offset: 10,
+    throttle: 250,
+    unload: true,
+    debounce:false,
+    callback: function (element, op) {
+      console.log(element, 'has been', op + 'ed')
+    }
+  });
+</script>
+</body>
+</html>

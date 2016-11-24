@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jquery.scrollLoading.js</title>
+    <meta charset="utf-8">
+    <style type="text/css">
+        .img{
+            width:220px;
+            height: 220px;
+            background-image: url("echojs/images/image.gif");
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+    </style>
+</head>
+<body>
+<div class="imgbox">
+    <div class="img"><img src="echojs/images/placeholder.png" width="220" height="220" data-url="http://pic.mousebird.cn/images/57d0bcbcNd22cad97.png"></div>
+    <div class="img"><img src="echojs/images/placeholder.png" width="220" height="220" data-url="http://pic.mousebird.cn/images/57de9c90N48e3c482.jpg"></div>
+    <div class="img"><img src="echojs/images/placeholder.png" width="220" height="220" data-url="http://pic.mousebird.cn/images/555af01aN0bf1fcb1.jpg"></div>
+    <div class="img"><img src="echojs/images/placeholder.png" width="220" height="220" data-url="http://pic.mousebird.cn/images/572b0233N573b593b.jpg"></div>
+    <div class="img"><img src="echojs/images/placeholder.png" width="220" height="220" data-url="http://pic.mousebird.cn/images/572f631fNee6ec9db.jpg"></div>
+    <div class="img"><img src="echojs/images/placeholder.png" width="220" height="220" data-url="http://pic.mousebird.cn/images/576a30a9N6e0daf1e.jpg"></div>
+    <div class="img"><img src="echojs/images/placeholder.png" width="220" height="220" data-url="http://pic.mousebird.cn/images/57057f7eN936fd6c0.jpg"></div>
+    <div class="img"><img src="echojs/images/placeholder.png" width="220" height="220" data-url="http://pic.mousebird.cn/images/562898c4N3e135baf.jpg"></div>
+    <div class="img"><img src="echojs/images/placeholder.png" width="220" height="220" data-url="http://pic.mousebird.cn/images/573357c1N10bb6e16.jpg"></div>
+    <div class="img"><img src="echojs/images/placeholder.png" width="220" height="220" data-url="http://pic.mousebird.cn/images/57612849N9e40d33b.jpg"></div>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+    (function($) {
+        $.fn.scrollLoading = function(options) {
+            var defaults = {
+                attr: "data-url",
+                container: $(window),
+                callback: $.noop
+            };
+            var params = $.extend({}, defaults, options || {});
+            params.cache = [];
+            $(this).each(function() {
+                var node = this.nodeName.toLowerCase(), url = $(this).attr(params["attr"]);
+                //重组
+                var data = {
+                    obj: $(this),
+                    tag: node,
+                    url: url
+                };
+                params.cache.push(data);
+            });
+
+            var callback = function(call) {
+                if ($.isFunction(params.callback)) {
+                    params.callback.call(call.get(0));
+                }
+            };
+            //动态显示数据
+            var loading = function() {
+
+                var contHeight = params.container.height();
+                if ($(window).get(0) === window) {
+                    contop = $(window).scrollTop();
+                } else {
+                    contop = params.container.offset().top;
+                }
+
+                $.each(params.cache, function(i, data) {
+                    var o = data.obj, tag = data.tag, url = data.url, post, posb;
+
+                    if (o) {
+                        post = o.offset().top - contop, post + o.height();
+
+                        if (o.is(':visible') && (post >= 0 && post < contHeight) || (posb > 0 && posb <= contHeight)) {
+                            if (url) {
+                                //在浏览器窗口内
+                                if (tag === "img") {
+                                    //图片，改变src
+                                    callback(o.attr("src", url));
+                                } else {
+                                    o.load(url, {}, function() {
+                                        callback(o);
+                                    });
+                                }
+                            } else {
+                                // 无地址，直接触发回调
+                                callback(o);
+                            }
+                            data.obj = null;
+                        }
+                    }
+                });
+            };
+
+            //事件触发
+            //加载完毕即执行
+            loading();
+            //滚动执行
+            params.container.bind("scroll", loading);
+        };
+    })(jQuery);
+
+    $('.img img').scrollLoading();
+</script>
